@@ -2,7 +2,7 @@ name: Run Apidog Tests Every Morning
 
 on:
   schedule:
-    - cron: '0 3 * * *'  # <-- This means run at 03:00 UTC (8:30 AM IST)
+    - cron: '*/5 * * * *'
 
 jobs:
   apidog-test:
