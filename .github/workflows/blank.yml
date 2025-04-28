@@ -1,0 +1,25 @@
+name: Run Apidog Tests Every Morning
+
+on:
+  schedule:
+    - cron: '0 3 * * *'  # <-- This means run at 03:00 UTC (8:30 AM IST)
+
+jobs:
+  apidog-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Apidog CLI
+        run: npm install -g apidog-cli
+
+      - name: Run API Tests
+        run: |
+          apidog-cli run --token ${{ secrets.APIDOG_TOKEN }} --project YOUR_PROJECT_ID
