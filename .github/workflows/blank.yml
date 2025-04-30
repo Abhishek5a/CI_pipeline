@@ -1,7 +1,7 @@
 name: Automated API Tests
 
 on:  
-  schedule:
+  push:
     
 
 jobs:
